@@ -65,7 +65,7 @@ void SavingsAccount::settle(const Date& date) {
 //CreditAccount类相关成员函数的实现
 CreditAccount::CreditAccount(const Date& date, const string& id, double credit, double rate, double fee)
 	: Account(date, id), credit(credit), rate(rate), fee(fee){
-	acc->reset(date, 0);
+	acc = new Accumulator(date, 0);
 }
 
 void CreditAccount::deposit(const Date& date, double amount, const string& desc) {

@@ -34,7 +34,7 @@ void Account::error(const string& msg) const {
 //SavingsAccount类相关成员函数的实现
 SavingsAccount::SavingsAccount(const Date& date, const string& id, double rate)
 	: Account(date, id), rate(rate){
-	acc->reset(date, 0);
+	acc = new Accumulator(date,0);
 }
 
 void SavingsAccount::deposit(const Date& date, double amount, const string& desc) {

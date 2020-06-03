@@ -13,6 +13,10 @@ int main() {
 	accounts[accounts.getsize() - 1] = account;
 	system("cls");
 	int userh = RLD::signin(accounts);
+	/*统一使用userh作为当前登录的用户的标签
+		使用accounts[userh]就可以获得该账户的用户信息类
+		userh 统一为int类型的变量
+	*/
 	cout << "姓名" << accounts[userh]->getname() << endl;
 	if (RLD::delacc(userh, accounts)) 
 	{

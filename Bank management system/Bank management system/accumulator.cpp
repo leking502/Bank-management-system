@@ -1,7 +1,6 @@
-#include "date.h"
-#include "accumulator.h"
-#include "account.h"
-#include "Array.h"
+#include "headf.h"
+#include "stdafx.h"
+using namespace std;
 //构造函数，date为开始累加的日期，value为初始值
 Accumulator::Accumulator(const Date& date, double value)
 	: lastDate(date), value(value), sum(0) { }

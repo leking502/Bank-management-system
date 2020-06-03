@@ -8,7 +8,7 @@ private:
 	T* list;	//T类型指针，用于存放动态分配的数组内存首地址
 	int size;	//数组大小（元素个数）
 public:
-	Array(int sz = 50);			//构造函数
+	Array(int sz);			//构造函数
 	Array(const Array<T>& a);	//拷贝构造函数
 	~Array();	//析构函数
 	Array<T>& operator = (const Array<T>& rhs); //重载"="使数组对象可以整体赋值
@@ -16,7 +16,7 @@ public:
 	const T& operator [] (int i) const;	//"[]"运算符的const版本
 	operator T* ();	//重载到T*类型的转换，使Array对象可以起到C++普通数组的作用
 	operator const T* () const;	//到T*类型转换操作符的const版本
-	int getSize() const;	//取数组的大小
+	int getsize() const;	//取数组的大小
 	void resize(int sz);	//修改数组的大小
 };
 
@@ -91,8 +91,9 @@ Array<T>::operator const T* () const {
 
 //取当前数组的大小
 template <class T>
-int Array<T>::getSize() const {
-	return size;
+int Array<T>::getsize() const{
+	int x = this->size;
+	return x;
 }
 
 // 将数组大小修改为sz

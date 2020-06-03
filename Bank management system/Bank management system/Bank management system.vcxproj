@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -142,16 +142,25 @@
   <ItemGroup>
     <ClCompile Include="account.cpp" />
     <ClCompile Include="accumulator.cpp" />
+    <ClCompile Include="check.cpp" />
     <ClCompile Include="date.cpp" />
+    <ClCompile Include="iof.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="RLD.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="user_info.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="account.h" />
     <ClInclude Include="accumulator.h" />
     <ClInclude Include="Array.h" />
+    <ClInclude Include="check.h" />
     <ClInclude Include="date.h" />
+    <ClInclude Include="headf.h" />
+    <ClInclude Include="iof.h" />
+    <ClInclude Include="RLD.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="user_info.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

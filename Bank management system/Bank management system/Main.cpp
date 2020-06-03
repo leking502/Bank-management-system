@@ -1,15 +1,26 @@
-#include "date.h"
-#include "accumulator.h"
-#include "account.h"
-#include "Array.h"
+#include "headf.h"
 #include "stdafx.h"
-#include <iostream>
 using namespace std;
-
 int main() {
 	Date date(2008, 11, 1);			//起始日期
-	Array<Account*> accounts(0);	//创建账户数组，元素个数为0
+	Array<user_info*> accounts(0);	//创建账户数组，元素个数为0
+	Array<Account*> acco(0);
+	acco.getsize();
 	char cmd;
+	user_info* account;
+	account = (user_info*)RLD::reg(date, 1, accounts);
+	accounts.resize(accounts.getsize() + 1);
+	accounts[accounts.getsize() - 1] = account;
+	system("cls");
+	int userh = RLD::signin(accounts);
+	cout << "姓名" << accounts[userh]->getname() << endl;
+	if (RLD::delacc(userh, accounts)) 
+	{
+		accounts.resize(accounts.getsize() - 1);
+	};
+	userh = RLD::signin(accounts);
+
+#if 0
 	do {
 		cout << "(a)增加账户 (d)存入现金 (w)取出现金 (s)查询各用户信息 (c)改变日期 (n)进入下一个月 (e)退出" << endl;
 		//显示日期和总金额
@@ -20,7 +31,6 @@ int main() {
 		int index, day;
 		double amount, credit, rate, fee;
 		string id, desc;
-		Account* account;
 
 		cin >> cmd;
 		switch (cmd) {
@@ -91,8 +101,8 @@ int main() {
 		system("pause");
 		system("cls");
 	} while (cmd != 'e');
-
-	for (int i = 0; i < accounts.getSize(); i++)
+#endif
+	for (int i = 0; i < accounts.getsize(); i++)
 		delete accounts[i];
 
 	return 0;

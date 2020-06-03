@@ -1,10 +1,6 @@
 //date.cpp
-#include "date.h"
-#include "account.h"
-#include "Array.h"
-#include "accumulator.h"
-#include <iostream>
-#include <cstdlib>
+#include "headf.h"
+#include "stdafx.h"
 using namespace std;
 
 namespace {	//namespace使下面的定义只在当前文件中有效
@@ -27,6 +23,7 @@ Date::Date(int year, int month, int day) : year(year), month(month), day(day) {
 		+ DAYS_BEFORE_MONTH[month - 1] + day;   //(2)本年初到当前月日的天数
 	if (isLeapYear() && month > 2) totalDays++; //(3)本年是润年则二月是29天。故二月后加1
 }
+
 //返回当前账户日期月的最大天数
 int Date::getMaxDay() const {
 	if (isLeapYear() && month == 2)
@@ -34,7 +31,9 @@ int Date::getMaxDay() const {
 	else
 		return DAYS_BEFORE_MONTH[month] - DAYS_BEFORE_MONTH[month - 1];
 }
+
 //显示当前账户日期
 void Date::show() const {
 	cout << getYear() << "-" << getMonth() << "-" << getDay();
 }
+

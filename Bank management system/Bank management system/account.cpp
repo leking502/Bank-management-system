@@ -1,9 +1,6 @@
 //account.cpp
-#include "account.h"
-#include <iostream>
-#include "date.h"
-#include "accumulator.h"
-#include "Array.h"
+#include "headf.h"
+#include "stdafx.h"
 using namespace std;
 
 double Account::total = 0;

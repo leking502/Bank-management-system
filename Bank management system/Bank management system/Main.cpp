@@ -65,7 +65,7 @@ int main() {
 			cin >> index;
 			printf("%s\n", "请输入存入的金额");
 			cin >> amount;
-			getline(cin, desc);
+			getline(cin, desc);//参考这里你还要引入个参数date参考他这样就行
 			accounts[index]->deposit(date, amount, desc);
 			break;
 		case 'w':	//取出现金

@@ -9,7 +9,7 @@ iofreg::iofreg(Array<user_info*> accounts) //输入输出相关函数类的实现
 	string name;
 	string password;
 	long long  pnum;
-	bool type;
+	int type;
 	while (1) {
 		system("cls");
 		cout << "o=================================================o" << endl;
@@ -178,7 +178,7 @@ iofreg::iofreg(Array<user_info*> accounts) //输入输出相关函数类的实现
 						{
 							ftype = 1;
 							break;
-						}
+						};
 						system("cls");
 						if (type == 2)
 						{

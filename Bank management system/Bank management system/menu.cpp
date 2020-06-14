@@ -2,7 +2,7 @@
 #include "stdafx.h"
 using namespace std;
 //用户主页面
-void menu::usermenu(int userh, Date date, Array<user_info*> accounts)
+int menu::usermenu(int userh, Date date, Array<user_info*> accounts)
 {
 	int f;
 	while (1) {
@@ -28,7 +28,7 @@ void menu::usermenu(int userh, Date date, Array<user_info*> accounts)
 			cout << "   登录名：" << accounts[userh]->getaccount()->getId() << endl;
 			cout << "   用户姓名：" << accounts[userh]->getname() << endl;
 			cout << "   手机号码：" << x << endl;
-			cout << "   余额：" << accounts[userh]->getaccount()->getBalance() << endl;
+			cout << "   余额：" << fixed << setprecision(0) <<accounts[userh]->getaccount()->getBalance() << endl;
 			cout << "                                                    " << endl;
 			cout << "o=================================================o" << endl;
 			system("pause");
@@ -66,6 +66,7 @@ void menu::usermenu(int userh, Date date, Array<user_info*> accounts)
 				};
 				if (check::checkpassword(userh, pw, accounts))
 				{
+					bool fpwc = 0;
 					while (1) {
 						system("cls");
 						cout << "o=================================================o" << endl;
@@ -82,6 +83,20 @@ void menu::usermenu(int userh, Date date, Array<user_info*> accounts)
 						{
 							break;
 						};
+						if (npw == pw) 
+						{
+							system("cls");
+							cout << "o=================================================o" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "|              新密码和旧密码不能相同             |" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "o=================================================o" << endl;
+							system("pause");
+							continue;
+						};
 						accounts[userh]->changepassword(npw);
 						system("cls");
 						cout << "o=================================================o" << endl;
@@ -93,7 +108,14 @@ void menu::usermenu(int userh, Date date, Array<user_info*> accounts)
 						cout << "|                                                 |" << endl;
 						cout << "o=================================================o" << endl;
 						system("pause");
+						fpwc = 1;
+						break;
 					};
+					if (fpwc) 
+					{
+						break;
+					};
+					continue;
 				};
 				system("cls");
 				cout << "o=================================================o" << endl;
@@ -116,14 +138,14 @@ void menu::usermenu(int userh, Date date, Array<user_info*> accounts)
 		}
 		case(6):
 		{
-			return;
+			return accounts.getsize();
 		}
 		case(7):
 		{
 			if (RLD::delacc(userh, accounts))
 			{
 				accounts.resize(accounts.getsize() - 1);
-				continue;
+				return accounts.getsize();
 			};
 			continue;
 		}
@@ -192,7 +214,12 @@ void menu::sginmenu(Date date, Array<user_info*> accounts)
 			{
 				continue;
 			}
-			menu::usermenu(userh, date, accounts);
+			int ls = menu::usermenu(userh, date, accounts);
+			for (userh;userh < accounts.getsize()-1 ;userh++) 
+			{
+				accounts[userh] = accounts[userh + 1];
+			};
+			accounts.resize(ls);
 			continue;
 		}
 		case(3): {

@@ -2,7 +2,7 @@
 template <class T>
 class Array {
 private:
-	T* list;	//T类型指针，用于存放动态分配的数组内存首地址
+	 T* list;	//T类型指针，用于存放动态分配的数组内存首地址
 	int size;	//数组大小（元素个数）
 public:
 	Array(int sz);			//构造函数

@@ -14,6 +14,7 @@ class iofreg:public iof
 {
 public:
 	string name;
+
 	long long  pnum;
 	bool type;
 	iofreg(Array<user_info*> accounts);

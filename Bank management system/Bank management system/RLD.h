@@ -7,7 +7,7 @@ class RLD
 {
 public:
 	//×¢²á
-	static int reg(Date date, int rate, Array<user_info*> accounts);
+	static user_info* reg(Date date, int rate, Array<user_info*> accounts);
 	//µÇÂ¼
 	static int signin(Array<user_info*> accounts);
 	//×¢Ïú

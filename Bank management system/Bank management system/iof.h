@@ -2,7 +2,7 @@
 #include "stdafx.h"
 using namespace std;
 //输入输出相关函数类
-class iof    
+class iof
 {
 public:
 	string id;
@@ -10,11 +10,10 @@ public:
 	iof() {};
 };
 //注册输入输出函数子类
-class iofreg:public iof		
+class iofreg :public iof
 {
 public:
 	string name;
-
 	long long  pnum;
 	bool type;
 	iofreg(Array<user_info*> accounts);

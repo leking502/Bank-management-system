@@ -10,5 +10,4 @@ public:
 	static int checkid(string id, Array<user_info*> accounts);
 	//¼ì²éÓà¶î
 	static int checkamount(int amount, int userh, Array<user_info*> accounts);
-
 };

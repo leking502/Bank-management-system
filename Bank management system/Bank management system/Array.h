@@ -1,6 +1,3 @@
-//Array.h
-
-//数组类模板定义
 #include "stdafx.h"
 template <class T>
 class Array {
@@ -91,7 +88,7 @@ Array<T>::operator const T* () const {
 
 //取当前数组的大小
 template <class T>
-int Array<T>::getsize() const{
+int Array<T>::getsize() const {
 	int x = this->size;
 	return x;
 }
@@ -111,4 +108,3 @@ void Array<T>::resize(int sz) {
 	list = newList;	// 使list指向新数组
 	size = sz;	//更新size
 }
-

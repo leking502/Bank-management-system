@@ -9,7 +9,7 @@ private:
 public:
 	//构造函数，date为开始累加的日期，value为初始值
 	Accumulator(const Date& date, double value);
-	
+
 	//获得到日期date的累加结果
 	double getSum(const Date& date) const;
 

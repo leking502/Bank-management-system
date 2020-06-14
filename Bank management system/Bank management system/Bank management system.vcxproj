@@ -147,7 +147,7 @@
     <ClCompile Include="de_an_wi.cpp" />
     <ClCompile Include="iof.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="reuserin.cpp" />
+    <ClCompile Include="menu.cpp" />
     <ClCompile Include="RLD.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="tracc.cpp" />
@@ -162,7 +162,7 @@
     <ClInclude Include="de_an_wi.h" />
     <ClInclude Include="headf.h" />
     <ClInclude Include="iof.h" />
-    <ClInclude Include="reuserin.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="RLD.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="tracc.h" />

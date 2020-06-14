@@ -4,7 +4,7 @@ using namespace std;
 //检查密码是否正确
 bool check::checkpassword(int userh, string password, Array<user_info*> accounts)
 {
-	if (accounts[userh]->getpassword() == password) 
+	if (accounts[userh]->getpassword() == password)
 	{
 		return 1;
 	};
@@ -14,18 +14,18 @@ bool check::checkpassword(int userh, string password, Array<user_info*> accounts
 //检查是否存在账户名
 int check::checkid(string id, Array<user_info*> accounts)
 {
-	for (int i = 0;i < accounts.getsize();i++) 
+	for (int i = 0;i < accounts.getsize();i++)
 	{
 		if (accounts[i]->getaccount()->getId() == id)
 		{
-			return 1+i;
+			return 1 + i;
 		};
 	}
 	return 0;
 };
 int check::checkamount(int amount, int userh, Array<user_info*> accounts)
 {
-	if ((accounts[userh]->getaccount()->getBalance()) > (amount && amount >0)) 
+	if (((accounts[userh]->getaccount()->getBalance()) >= (amount)) && (amount > 0))
 	{
 		return 1;
 	};

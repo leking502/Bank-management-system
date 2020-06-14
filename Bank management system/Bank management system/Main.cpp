@@ -2,13 +2,16 @@
 #include "stdafx.h"
 using namespace std;
 int main() {
+	system("mode con: cols=52 lines=20");
 	Date date(2008, 11, 1);			//起始日期
 	Array<user_info*> accounts(0);	//创建账户数组，元素个数为0
 	Array<Account*> acco(0);
 	acco.getsize();
+	menu::sginmenu(date, accounts);
+#if 0
 	char cmd;
 	user_info* account;
-	account = (user_info*)RLD::reg(date, 1, accounts);
+	account = RLD::reg(date, 1, accounts);
 	accounts.resize(accounts.getsize() + 1);
 	accounts[accounts.getsize() - 1] = account;
 	system("cls");
@@ -18,12 +21,12 @@ int main() {
 		userh 统一为int类型的变量
 	*/
 	cout << "姓名" << accounts[userh]->getname() << endl;
-	if (RLD::delacc(userh, accounts)) 
+	if (RLD::delacc(userh, accounts))
 	{
 		accounts.resize(accounts.getsize() - 1);
 	};
 	userh = RLD::signin(accounts);
-
+#endif
 #if 0
 	do {
 		cout << "(a)增加账户 (d)存入现金 (w)取出现金 (s)查询各用户信息 (c)改变日期 (n)进入下一个月 (e)退出" << endl;
@@ -54,7 +57,7 @@ int main() {
 				printf("%s\n", "请输入该账户的利率");
 				cin >> rate;
 				printf("%s\n", "请输入该账户的收费");
-				cin>> fee;
+				cin >> fee;
 				account = new CreditAccount(date, id, credit, rate, fee);
 			}
 			accounts.resize(accounts.getSize() + 1);

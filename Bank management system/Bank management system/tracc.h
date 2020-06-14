@@ -8,6 +8,6 @@ class Date;
 class tracc
 {
 public:
-	bool transferacc(user_info user1, user_info user2, const Date& date, Array<user_info*> accounts);
+	bool transferacc(int userh, const Date& date, Array<user_info*> accounts);
 };
 

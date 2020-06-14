@@ -144,8 +144,10 @@
     <ClCompile Include="accumulator.cpp" />
     <ClCompile Include="check.cpp" />
     <ClCompile Include="date.cpp" />
+    <ClCompile Include="de_an_wi.cpp" />
     <ClCompile Include="iof.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="reuserin.cpp" />
     <ClCompile Include="RLD.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="tracc.cpp" />
@@ -157,8 +159,10 @@
     <ClInclude Include="Array.h" />
     <ClInclude Include="check.h" />
     <ClInclude Include="date.h" />
+    <ClInclude Include="de_an_wi.h" />
     <ClInclude Include="headf.h" />
     <ClInclude Include="iof.h" />
+    <ClInclude Include="reuserin.h" />
     <ClInclude Include="RLD.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="tracc.h" />

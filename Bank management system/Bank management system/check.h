@@ -8,4 +8,7 @@ public:
 	static bool checkpassword(int userh, string password, Array<user_info*> accounts);
 	//ºÏ≤Èid
 	static int checkid(string id, Array<user_info*> accounts);
+	//ºÏ≤È”‡∂Ó
+	static int checkamount(int amount, int userh, Array<user_info*> accounts);
+
 };

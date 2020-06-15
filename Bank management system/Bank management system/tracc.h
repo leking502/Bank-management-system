@@ -8,5 +8,5 @@ class Date;
 class tracc
 {
 public:
-	static bool transferacc(int userh, const Date& date, Array<user_info*> accounts);
+	static bool transferacc(int userh, Date& date, Array<user_info*>& accounts);
 };

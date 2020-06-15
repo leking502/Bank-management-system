@@ -2,7 +2,7 @@
 #include "stdafx.h"
 using namespace std;
 //检查密码是否正确
-bool check::checkpassword(int userh, string password, Array<user_info*> accounts)
+bool check::checkpassword(int userh, string password, Array<user_info*>& accounts)
 {
 	if (accounts[userh]->getpassword() == password)
 	{
@@ -12,7 +12,7 @@ bool check::checkpassword(int userh, string password, Array<user_info*> accounts
 };
 
 //检查是否存在账户名
-int check::checkid(string id, Array<user_info*> accounts)
+int check::checkid(string id, Array<user_info*>& accounts)
 {
 	for (int i = 0;i < accounts.getsize();i++)
 	{
@@ -23,7 +23,7 @@ int check::checkid(string id, Array<user_info*> accounts)
 	}
 	return 0;
 };
-int check::checkamount(int amount, int userh, Array<user_info*> accounts)
+int check::checkamount(int amount, int userh, Array<user_info*>& accounts)
 {
 	if (((accounts[userh]->getaccount()->getBalance()) >= (amount)) && (amount > 0))
 	{

@@ -36,4 +36,9 @@ int Date::getMaxDay() const {
 void Date::show() const {
 	cout << getYear() << "-" << getMonth() << "-" << getDay();
 }
-
+void Date::changedate(int Year,int Month,int Day) 
+{
+	this->year = Year;
+	this->month = Month;
+	this->day = Day;
+};

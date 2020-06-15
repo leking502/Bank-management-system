@@ -5,9 +5,9 @@ class Accumulator;
 class Account { //账户类，抽象类
 private:
 	std::string id;	//帐号
-	double balance;	//余额
 	static double total; //静态数据成员，所有账户的总金额
 protected:
+	double balance;//余额
 	//供派生类调用的构造函数，id为账户：新账户生成的日期和账户号
 	Account(const Date& date, const std::string& id);
 	//记录一笔帐，date为日期，amount为金额，desc为说明
@@ -15,7 +15,7 @@ protected:
 	//报告错误信息
 	void error(const std::string& msg) const;
 public:
-	const std::string& getId() const { return id; } //获得账号
+	std::string getId()  { return id; } //获得账号
 	double getBalance() const { return balance; }   //获得账户金额
 	static double getTotal() { return total; }      //静态成员函数，返回总金额
 	//存入现金，date为日期，amount为金额，desc为款项说明，纯虚函数
@@ -26,6 +26,10 @@ public:
 	virtual void settle(const Date& date) = 0;
 	//显示账户信息
 	virtual void show() const;
+	virtual void setbal(double amount) 
+	{
+		this->balance = amount;
+	};
 };
 
 class SavingsAccount : public Account { //储蓄账户类,派生类

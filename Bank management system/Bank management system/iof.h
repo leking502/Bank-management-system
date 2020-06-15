@@ -15,13 +15,13 @@ class iofreg :public iof
 public:
 	string name;
 	long long  pnum;
-	bool type;
-	iofreg(Array<user_info*> accounts);
+	int type;
+	iofreg(Array<user_info*>& accounts);
 };
 //登录输入输出函数子类
 class iofsignin :public iof
 {
 public:
 	int userh;
-	iofsignin(Array<user_info*> accounts);
+	iofsignin(Array<user_info*>& accounts);
 };

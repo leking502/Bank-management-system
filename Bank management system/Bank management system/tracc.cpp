@@ -1,8 +1,9 @@
 #include "tracc.h"
 #include"headf.h"
+#include"slf.h"
 #include "stdafx.h"
 using namespace std;
-bool tracc::transferacc(int userh1, const Date& date, Array<user_info*> accounts) {
+bool tracc::transferacc(int userh1, Date& date, Array<user_info*>& accounts) {
 	user_info* user1 = accounts[userh1];
 	string id;
 	double amount;
@@ -123,8 +124,9 @@ bool tracc::transferacc(int userh1, const Date& date, Array<user_info*> accounts
 					cout << "|                   ×ªÕË³É¹¦                      |" << endl;
 					cout << "|                                                 |" << endl;
 					cout << "|                                                 |" << endl;
-					cout << "|                                                 |" << endl;;
+					cout << "|                                                 |" << endl;
 					cout << "o=================================================o" << endl;
+					slf::savef(date, accounts);
 					system("pause");
 					system("cls");
 					return 0;

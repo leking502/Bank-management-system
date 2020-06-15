@@ -1,7 +1,8 @@
 #include "headf.h"
 #include "stdafx.h"
+#include"slf.h"
 using namespace std;
-void  de_an_wi::deposit(int userh, const Date& date, Array<user_info*> accounts)
+void  de_an_wi::deposit(int userh, Date& date, Array<user_info*>& accounts)
 {
 	double amount;
 	string desc;
@@ -47,12 +48,13 @@ void  de_an_wi::deposit(int userh, const Date& date, Array<user_info*> accounts)
 		cout << "|                                                 |" << endl;
 		cout << "|                                                 |" << endl;;
 		cout << "o=================================================o" << endl;
+		slf::savef(date, accounts);
 		system("pause");
 		system("cls");
 		return;
 	};
 };
-void  de_an_wi::withdrawal(int userh, const Date& date, Array<user_info*> accounts)
+void  de_an_wi::withdrawal(int userh, Date& date, Array<user_info*>& accounts)
 {
 	double amount;
 	string desc;
@@ -102,6 +104,7 @@ void  de_an_wi::withdrawal(int userh, const Date& date, Array<user_info*> accoun
 		cout << "o=================================================o" << endl;
 		system("pause");
 		system("cls");
+		slf::savef(date, accounts);
 		return;
 	};
 };

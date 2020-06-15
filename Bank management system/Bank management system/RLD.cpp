@@ -2,7 +2,7 @@
 #include "stdafx.h"
 using namespace std;
 //×¢²áÕË»§
-user_info* RLD::reg(Date date, int rate, Array<user_info*> accounts)
+user_info* RLD::reg(Date& date, int rate, Array<user_info*>& accounts)
 {
 
 	iofreg userio = iofreg(accounts);
@@ -12,7 +12,7 @@ user_info* RLD::reg(Date date, int rate, Array<user_info*> accounts)
 	};
 	string id = userio.id;
 	string name = userio.name;
-	BOOL type = userio.type;
+	int type = userio.type;
 	long long pnum = userio.pnum;
 	string password = userio.password;
 	if (type)
@@ -29,7 +29,7 @@ user_info* RLD::reg(Date date, int rate, Array<user_info*> accounts)
 			name,
 			pnum,
 			password,
-			type,
+			type - 1,
 			account1,
 			accounts
 		);
@@ -47,7 +47,7 @@ user_info* RLD::reg(Date date, int rate, Array<user_info*> accounts)
 			name,
 			pnum,
 			password,
-			type,
+			type - 1,
 			account0,
 			accounts
 		);
@@ -56,14 +56,14 @@ user_info* RLD::reg(Date date, int rate, Array<user_info*> accounts)
 };
 
 //µÇÂ¼ÕË»§
-int RLD::signin(Array<user_info*> accounts)
+int RLD::signin(Array<user_info*>& accounts)
 {
 	iofsignin userio = iofsignin(accounts);;
 	return userio.userh;
 };
 
 //×¢ÏúÕË»§
-bool RLD::delacc(int userh, Array<user_info*> accounts)
+bool RLD::delacc(int userh, Array<user_info*>& accounts)
 {
 	while (1)
 	{

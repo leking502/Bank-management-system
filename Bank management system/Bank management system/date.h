@@ -13,6 +13,7 @@ public:
 	int getMonth() const { return month; }//获得当前日期月
 	int getDay() const { return day; }    //获得当前日期日
 	int getMaxDay() const;		//获得当月有多少天
+	void changedate(int Year, int Month, int Day);
 	bool isLeapYear() const {	//判断当年是否为闰年
 		return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
 	}

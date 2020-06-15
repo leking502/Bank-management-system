@@ -2,7 +2,7 @@
 #include "stdafx.h"
 using namespace std;
 //注册时的输入输出
-iofreg::iofreg(Array<user_info*> accounts) //输入输出相关函数类的实现
+iofreg::iofreg(Array<user_info*>& accounts) //输入输出相关函数类的实现
 {
 	bool fla;
 	string id;
@@ -182,7 +182,7 @@ iofreg::iofreg(Array<user_info*> accounts) //输入输出相关函数类的实现
 						system("cls");
 						if (type == 2)
 						{
-							system("cls");
+							ca:system("cls");
 							cout << "o=================================================o" << endl;
 							cout << "                 请确认信息                         " << endl;
 							cout << "   请确认信息" << endl <<
@@ -196,7 +196,34 @@ iofreg::iofreg(Array<user_info*> accounts) //输入输出相关函数类的实现
 							int i;
 							cin.clear();
 							cin >> i;
-							system("cls");
+							cin.ignore();
+							while (cin.fail())
+							{
+								cin.clear();
+								cin.ignore();
+								system("cls");
+								cout << "o=================================================o" << endl;
+								cout << "|                                                 |" << endl;
+								cout << "|                                                 |" << endl;
+								cout << "|                 无效的输入                      |" << endl;
+								cout << "|                                                 |" << endl;
+								cout << "|                                                 |" << endl;
+								cout << "|                                                 |" << endl;
+								cout << "o=================================================o" << endl;
+								system("pause");
+								system("cls");
+								cout << "o=================================================o" << endl;
+								cout << "                 请确认信息                         " << endl;
+								cout << "   请确认信息" << endl <<
+									"   登录用户名：" << id << endl <<
+									"   账户名：" << name << endl <<
+									"   手机号：" << pnum << endl <<
+									"   密码：" << password << endl <<
+									"   账户类型： 信用账户" << endl;
+								cout << "  (1)确定" << "(2)重新填写" << "(3)放弃并返回主页面 " << endl;
+								cout << "o=================================================o" << endl;
+								cin >> i;
+							}
 							switch (i)
 							{
 							case(0):
@@ -222,9 +249,22 @@ iofreg::iofreg(Array<user_info*> accounts) //输入输出相关函数类的实现
 								this->type = NULL;
 								return;
 							}
+							default:
+								system("cls");
+								cout << "o=================================================o" << endl;
+								cout << "|                                                 |" << endl;
+								cout << "|                                                 |" << endl;
+								cout << "|                 无效的输入                      |" << endl;
+								cout << "|                                                 |" << endl;
+								cout << "|                                                 |" << endl;
+								cout << "|                                                 |" << endl;
+								cout << "o=================================================o" << endl;
+								system("pause");
+								system("cls");
+								goto ca;
 							}
-						};
-						system("cls");
+						}
+						sa:system("cls");
 						cout << "o=================================================o" << endl;
 						cout << "                    请确认信息                      " << endl <<
 							"   登录用户名：" << id << endl <<
@@ -234,10 +274,36 @@ iofreg::iofreg(Array<user_info*> accounts) //输入输出相关函数类的实现
 							"   账户类型： 储蓄账户" << endl;
 						cout << "  (1)确定" << "(2)重新填写" << "(3)放弃并返回主页面 " << endl;
 						cout << "o=================================================o" << endl;
-						int h;
+						int h ;
 						cin.clear();
 						cin >> h;
-						system("cls");
+						cin.ignore();
+						while (cin.fail())
+						{
+							cin.clear();
+							cin.ignore();
+							system("cls");
+							cout << "o=================================================o" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "|                 无效的输入                      |" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "o=================================================o" << endl;
+							system("pause");
+							system("cls");
+							cout << "o=================================================o" << endl;
+							cout << "                    请确认信息                      " << endl <<
+								"   登录用户名：" << id << endl <<
+								"   账户名：" << name << endl <<
+								"   手机号：" << pnum << endl <<
+								"   密码：" << password << endl <<
+								"   账户类型： 储蓄账户" << endl;
+							cout << "  (1)确定" << "(2)重新填写" << "(3)放弃并返回主页面 " << endl;
+							cout << "o=================================================o" << endl;
+							cin >> h;
+						}
 						switch (h)
 						{
 						case(0):
@@ -266,6 +332,19 @@ iofreg::iofreg(Array<user_info*> accounts) //输入输出相关函数类的实现
 						};
 							   break;
 							   break;
+						default:
+							system("cls");
+							cout << "o=================================================o" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "|                 无效的输入                      |" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "|                                                 |" << endl;
+							cout << "o=================================================o" << endl;
+							system("pause");
+							system("cls");
+							goto sa;
 						};
 						break;
 					};
@@ -291,7 +370,7 @@ iofreg::iofreg(Array<user_info*> accounts) //输入输出相关函数类的实现
 };
 
 //登录时的输入输出
-iofsignin::iofsignin(Array<user_info*> accounts)
+iofsignin::iofsignin(Array<user_info*>& accounts)
 {
 	string id;
 	string password;

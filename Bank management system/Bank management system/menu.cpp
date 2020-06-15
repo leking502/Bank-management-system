@@ -1,10 +1,10 @@
 ﻿#include "headf.h"
 #include "stdafx.h"
+#include "slf.h"
 using namespace std;
 //用户主页面
-int menu::usermenu(int userh, Date date, Array<user_info*> accounts)
+int menu::usermenu(int userh, Date& date, Array<user_info*>& accounts)
 {
-	int f;
 	while (1) {
 		system("cls");
 		cout << "o=================================================o" << endl;
@@ -17,7 +17,34 @@ int menu::usermenu(int userh, Date date, Array<user_info*> accounts)
 		cout << "|                  7.注销账号                     |" << endl;
 		cout << "o=================================================o" << endl;
 		cin.clear();
+		int f ;
 		cin >> f;
+		while (cin.fail())
+		{
+			cin.clear();
+			cin.ignore();
+			system("cls");
+			cout << "o=================================================o" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                 无效的输入                      |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "o=================================================o" << endl;
+			system("pause");
+			system("cls");
+			cout << "o=================================================o" << endl;
+			cout << "|                  1.查看账户信息                 |" << endl;
+			cout << "|                  2.取款                         |" << endl;
+			cout << "|                  3.存款                         |" << endl;
+			cout << "|                  4.修改密码                     |" << endl;
+			cout << "|                  5.转账                         |" << endl;
+			cout << "|                  6.登出                         |" << endl;
+			cout << "|                  7.注销账号                     |" << endl;
+			cout << "o=================================================o" << endl;
+			cin >> f;
+		}
 		switch (f)
 		{
 		case(1): {
@@ -107,6 +134,7 @@ int menu::usermenu(int userh, Date date, Array<user_info*> accounts)
 						cout << "|                                                 |" << endl;
 						cout << "|                                                 |" << endl;
 						cout << "o=================================================o" << endl;
+						slf::savef(date, accounts);
 						system("pause");
 						fpwc = 1;
 						break;
@@ -142,12 +170,8 @@ int menu::usermenu(int userh, Date date, Array<user_info*> accounts)
 		}
 		case(7):
 		{
-			if (RLD::delacc(userh, accounts))
-			{
-				accounts.resize(accounts.getsize() - 1);
-				return accounts.getsize();
-			};
-			continue;
+			RLD::delacc(userh, accounts);
+			return accounts.getsize();
 		}
 		default:
 			system("cls");
@@ -166,9 +190,8 @@ int menu::usermenu(int userh, Date date, Array<user_info*> accounts)
 	};
 };
 //登录界面
-void menu::sginmenu(Date date, Array<user_info*> accounts)
+void menu::sginmenu(Date& date, Array<user_info*>& accounts)
 {
-	int f;
 	while (1) {
 		system("cls");
 		cout << "o=================================================o" << endl;
@@ -181,7 +204,34 @@ void menu::sginmenu(Date date, Array<user_info*> accounts)
 		cout << "o=================================================o" << endl;
 		cout << "-> ";
 		cin.clear();
+		int f;
 		cin >> f;
+		while (cin.fail())
+		{
+			cin.clear();
+			cin.ignore();
+			system("cls");
+			cout << "o=================================================o" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                 无效的输入                      |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "o=================================================o" << endl;
+			system("pause");
+			system("cls");
+			cout << "o=================================================o" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                  1.开户                         |" << endl;
+			cout << "|                  2.账号登录                     |" << endl;
+			cout << "|                  3.退出系统                     |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "o=================================================o" << endl;
+			cout << "-> ";
+			cin >> f;
+		}
 		switch (f)
 		{
 		case(1):
@@ -192,6 +242,7 @@ void menu::sginmenu(Date date, Array<user_info*> accounts)
 			{
 				continue;
 			}
+			system("cls");
 			cout << "o=================================================o" << endl;
 			cout << "|                                                 |" << endl;
 			cout << "|                                                 |" << endl;
@@ -203,6 +254,7 @@ void menu::sginmenu(Date date, Array<user_info*> accounts)
 			cout << "-> " << endl;
 			accounts.resize(accounts.getsize() + 1);
 			accounts[accounts.getsize() - 1] = user;
+			slf::savef(date, accounts);
 			system("pause");
 			system("cls");
 			continue;
@@ -215,15 +267,17 @@ void menu::sginmenu(Date date, Array<user_info*> accounts)
 				continue;
 			}
 			int ls = menu::usermenu(userh, date, accounts);
-			for (userh;userh < accounts.getsize()-1 ;userh++) 
+			for (userh;userh < accounts.getsize() - 1;userh++)
 			{
 				accounts[userh] = accounts[userh + 1];
 			};
 			accounts.resize(ls);
+			slf::savef(date, accounts);
 			continue;
 		}
 		case(3): {
 			menu::leavemenu();
+			return;
 		}
 		default:
 			system("cls");
@@ -255,7 +309,7 @@ void menu::leavemenu() {
 	cout << "o=================================================o" << endl;
 	system("pause");
 	system("cls");
-	exit(0);
+	return;
 };
 //空白框
 void menu::blankmenu() {

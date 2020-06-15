@@ -170,7 +170,10 @@ int menu::usermenu(int userh, Date& date, Array<user_info*>& accounts)
 		}
 		case(7):
 		{
-			RLD::delacc(userh, accounts);
+			if(!RLD::delacc(userh, accounts))
+			{
+				continue;
+			}
 			return accounts.getsize();
 		}
 		default:
@@ -251,7 +254,6 @@ void menu::sginmenu(Date& date, Array<user_info*>& accounts)
 			cout << "|                                                 |" << endl;
 			cout << "|                                                 |" << endl;;
 			cout << "o=================================================o" << endl;
-			cout << "-> " << endl;
 			accounts.resize(accounts.getsize() + 1);
 			accounts[accounts.getsize() - 1] = user;
 			slf::savef(date, accounts);
@@ -271,7 +273,7 @@ void menu::sginmenu(Date& date, Array<user_info*>& accounts)
 			{
 				accounts[userh] = accounts[userh + 1];
 			};
-			accounts.resize(ls);
+			accounts.resize(accounts.getsize() - 1);
 			slf::savef(date, accounts);
 			continue;
 		}

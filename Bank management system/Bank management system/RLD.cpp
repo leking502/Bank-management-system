@@ -67,22 +67,48 @@ bool RLD::delacc(int userh, Array<user_info*>& accounts)
 {
 	while (1)
 	{
-		char b;
+		int b;
 		system("cls");
 		cout << "o=================================================o" << endl;
 		cout << "|                                                 |" << endl;
-		cout << "|              你确定要注销账户（y/n）            |" << endl;
+		cout << "|              你确定要注销账户                   |" << endl;
+		cout << "|                                                 |" << endl;
+		cout << "|        (1)确定              (2)返回             |" << endl;
 		cout << "|                                                 |" << endl;
 		cout << "|                                                 |" << endl;
-		cout << "|                                                 |" << endl;
-		cout << "|                                                 |" << endl;;
 		cout << "o=================================================o" << endl;
+		cin.clear();
 		cin >> b;
-		if (b == '0')
+		while (cin.fail())
+		{
+			cin.clear();
+			cin.ignore();
+			system("cls");
+			cout << "o=================================================o" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                 无效的输入                      |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "o=================================================o" << endl;
+			system("pause");
+			system("cls");
+			cout << "o=================================================o" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|              你确定要注销账户                   |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|        (1)确定              (2)返回             |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "|                                                 |" << endl;
+			cout << "o=================================================o" << endl;
+			cin >> b;
+		}
+		if (b == 0 || b >=2 )
 		{
 			return 0;
 		}
-		if (b == 'y')
+		if (b == 1)
 		{
 			string pw;
 			system("cls");
